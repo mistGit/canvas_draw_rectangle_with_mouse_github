@@ -10,11 +10,19 @@ function getCoords(event){
 	var x = event.clientX - boundbox.x;
 	var y = event.clientY - boundbox.y;
 
-	if(x > canvas.width){x = canvas.width}; // prevents drawing outside of the canvas
-	if(x < 0){x = 0};
+	if(x > canvas.width){
+		x = canvas.width
+	}; // prevents drawing outside of the canvas
+	if(x < 0){
+		x = 0
+	};
 
-	if(y > canvas.height){y = canvas.height};
-	if(y < 0){y = 0};
+	if(y > canvas.height){
+		y = canvas.height
+	};
+	if(y < 0){
+		y = 0
+	};
 
 	coords.x = x; // sends the coordinates to external object(global variable)
 	coords.y = y;
@@ -32,7 +40,7 @@ function startDraw(event){
 	console.log('Position 1: x: '+ coords.x + ' y: ' + coords.y);
 	coords.x1 = coords.x; // stores the value x of the first click location
 	coords.y1 = coords.y; // stores the value y of the first click location
-
+	document.addEventListener('mousemove', getCoords);
 	document.addEventListener('mouseup', stopDraw);
 };
 
@@ -44,10 +52,10 @@ function stopDraw(event){
 
 	drawRect(coords);
 
-	document.removeEventListener('mouseup', stopDraw);	
+	document.removeEventListener('mousemove', getCoords);
+	document.removeEventListener('mouseup', stopDraw);	// prevents registering clicks outside of the canvas
 };
 
 
 canvas.addEventListener('mousedown', startDraw);
 
-document.addEventListener('mousemove', function(event){getCoords(event);});
