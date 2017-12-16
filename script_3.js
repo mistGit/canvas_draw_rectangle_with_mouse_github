@@ -52,10 +52,18 @@ function stopDraw(event){
 
 	drawRect(coords);
 
+<<<<<<< HEAD
 	document.removeEventListener('mousemove', getCoords);
 	document.removeEventListener('mouseup', stopDraw);	// prevents registering clicks outside of the canvas
+=======
+	document.removeEventListener('mouseup', stopDraw); // prevents registering clicks outside of the canvas	
+>>>>>>> 57a7930319e03de7b49737b8b4eb16b0a658c5dd
 };
 
 
 canvas.addEventListener('mousedown', startDraw);
 
+<<<<<<< HEAD
+=======
+document.addEventListener('mousemove', function(event){getCoords(event);});
+>>>>>>> 57a7930319e03de7b49737b8b4eb16b0a658c5dd
