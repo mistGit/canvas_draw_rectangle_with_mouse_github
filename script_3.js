@@ -44,7 +44,7 @@ function stopDraw(event){
 
 	drawRect(coords);
 
-	document.removeEventListener('mouseup', stopDraw);	
+	document.removeEventListener('mouseup', stopDraw); // prevents registering clicks outside of the canvas	
 };
 
 
